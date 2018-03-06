@@ -1,3 +1,6 @@
+//fuck you jeff
+
+
 //Barbarian, Bard, Cleric, Druid, Fighter, Monk, Paladin, Ranger, Rogue, Sorcerer, Wizard
 //class skills list: "appraise", "balance", "bluff", "climb", "concentration", "craft()", "decipherScript", "diplomacy", "disable device", "disguise", "escapeArtist", "forgery", "gatherInformation", "handleAnimal", "heal", "hide", "intimidate", "jump", "knowledge()", "listen", "moveSilently", "openLock", "perform()", "profession()", "ride", "search", "senseMotive", "sleightOfHand", "spellcraft", "spot", "survival", "swim", "tumble", "useMagicDevice", "useRope"
 var d20class = 
@@ -22,7 +25,7 @@ var d20class =
 		// All proficiencies: represent a selection of weapons and armor a character can equip; simple and martial weapon proficiency are most common for weapons; light, medium, heavy, and shields are most common for armor
 		weaponProficiencies: ["simple", "martial"],
 		armorProficiencies: ["light", "medium", "shields"],
-		// spellStat: what ability modifier impacts spells for this class; CHA, WIS, and INT are common; many classes will have "none"
+		// spellStat://name: identifiable class name what ability modifier impacts spells for this class; CHA, WIS, and INT are common; many classes will have "none"
 		spellStat: "none",
 		// spellType: what kind of spells do they produce; common types are arcane and divine; many classes will have none and few will have both 
 		spellType: "none"
@@ -88,7 +91,7 @@ var d20class =
 		fortSave: 0,
 		refSave: 1,
 		willSave: 0,
-		// hit die: d4, d6, d8, d10, d12; 1st level
+		// hit die: d//name: identifiable class name4, d6, d8, d10, d12; 1st level
 		hitDie: 8,
 		// skill points: class-specific-number; calculation is (CSN + INT modifier + (isHuman)) * (lvl + 3)
 		skillPoints: 4,
@@ -126,7 +129,7 @@ var d20class =
 		armorProficiencies: ["light", "medium", "heavy", "shields", "towerShields"],
 		// spellStat: what ability modifier impacts spells for this class; CHA, WIS, and INT are common; many classes will have "none"
 		spellStat: "none",
-		// spellType: what kind of spells do they produce; common types are arcane and divine; many classes will have none and few will have both 
+		// spellType: whahttps://github.com/GregoryProuty/characterCreator.gitt kind of spells do they produce; common types are arcane and divine; many classes will have none and few will have both 
 		spellType: "none"
 	},
 	{
