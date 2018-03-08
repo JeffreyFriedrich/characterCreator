@@ -1,9 +1,9 @@
 var deity = 
 {
-	boccob:
+	'boccob':
 		{
 		//name: name of deity given from players handbook
-		name: "Boccob",
+		name: "boccob",
 		//alignment: players are able to choose a deity within one alignment of their character
 		alignment: "True Neutral",
 		//domains: clerics are able to choose from the domains of their god; domains grant extra abilities to clerics such as feats, class skills, bonus spells, etc.
@@ -17,9 +17,9 @@ var deity =
 		//description: a giant string of text explaining who this god is and what their goals are; pure flair
 		description: "Boccob is a distant deity who promotes no special agenda in the world of mortals. As a god of magic and knowledge, he is worshipped by wizards, sorcerers, and sages."
 		},
-	corellonLarethian:
+	'corellon larethian':
 		{
-		name: "Corellon Larethian",
+		name: "corellon larethian",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
@@ -27,9 +27,9 @@ var deity =
 		portfolios: [""],
 		description: ""
 		},
-	ehlonna:
+	'ehlonna':
 		{
-		name: "Ehlonna",
+		name: "ehlonna",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
@@ -37,9 +37,9 @@ var deity =
 		portfolios: [""],
 		description: ""
 		},
-	erythnul:
+	'erythnul':
 		{
-		name: "Erythnul",
+		name: "erythnul",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
@@ -47,9 +47,9 @@ var deity =
 		portfolios: [""],
 		description: ""
 		},
-	fharlanghn:
+	'fharlanghn':
 		{
-		name: "Fharlanghn",
+		name: "fharlanghn",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
@@ -57,9 +57,9 @@ var deity =
 		portfolios: [""],
 		description: ""
 		},
-	garlGlittergold:
+	'garl glittergold':
 		{
-		name: "Garl Glittergold",
+		name: "garl glittergold",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
@@ -67,9 +67,9 @@ var deity =
 		portfolios: [""],
 		description: ""
 		},
-	gruumsh:
+	'gruumsh':
 		{
-		name: "Gruumsh",
+		name: "gruumsh",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
@@ -77,9 +77,9 @@ var deity =
 		portfolios: [""],
 		description: ""
 		},
-	heironeous:
+	'heironeous':
 		{
-		name: "Heironeous",
+		name: "heironeous",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
@@ -87,9 +87,9 @@ var deity =
 		portfolios: [""],
 		description: ""
 		},
-	hextor:
+	'hextor':
 		{
-		name: "Hextor",
+		name: "hextor",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
@@ -97,9 +97,9 @@ var deity =
 		portfolios: [""],
 		description: ""
 		},
-	kord:
+	'kord':
 		{
-		name: "Kord",
+		name: "kord",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
@@ -107,9 +107,9 @@ var deity =
 		portfolios: [""],
 		description: ""
 		},
-	moradin:
+	'moradin':
 		{
-		name: "Moradin",
+		name: "moradin",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
@@ -117,9 +117,9 @@ var deity =
 		portfolios: [""],
 		description: ""
 		},
-	nerull:
+	'nerull':
 		{
-		name: "Nerull",
+		name: "nerull",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
@@ -127,9 +127,9 @@ var deity =
 		portfolios: [""],
 		description: ""
 		},
-	obadHai:
+	'obad-hai':
 		{
-		name: "Obad-Hai",
+		name: "obad-hai",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
@@ -137,9 +137,9 @@ var deity =
 		portfolios: [""],
 		description: ""
 		},
-	olidammara:
+	'olidammara':
 		{
-		name: "Olidammara",
+		name: "olidammara",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
@@ -147,9 +147,9 @@ var deity =
 		portfolios: [""],
 		description: ""
 		},
-	pelor:
+	'pelor':
 		{
-		name: "Pelor",
+		name: "pelor",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
@@ -157,9 +157,9 @@ var deity =
 		portfolios: [""],
 		description: ""
 		},
-	stCuthbert:
+	'st. cuthbert':
 		{
-		name: "St. Cuthbert",
+		name: "st. cuthbert",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
@@ -167,9 +167,9 @@ var deity =
 		portfolios: [""],
 		description: ""
 		},
-	vecna:
+	'vecna':
 		{
-		name: "Vecna",
+		name: "vecna",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
@@ -177,9 +177,9 @@ var deity =
 		portfolios: [""],
 		description: ""
 		},
-	weeJas:
+	'wee jas':
 		{
-		name: "Wee Jas",
+		name: "wee jas",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
@@ -187,9 +187,9 @@ var deity =
 		portfolios: [""],
 		description: ""
 		},
-	yondalla:
+	'yondalla':
 		{
-		name: "Yondalla",
+		name: "yondalla",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
