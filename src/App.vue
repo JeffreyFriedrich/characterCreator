@@ -16,7 +16,7 @@
   <br>
       <div id='secondLine'>
           <div id=characterClass>
-            <dropdown :data="classOptions" placeholder='Class'>
+            <dropdown :data="classOptions" placeholder='Class' :width=200>
             </dropdown>
           </div>
           <div id=characterLevel>
@@ -28,7 +28,7 @@
           </div>
           <div id=characterRace>
             <!-- <p>Character race:</p> -->
-            <dropdown :data="raceOptions" placeholder='Race'>
+            <dropdown :data="raceOptions" placeholder='Race' :width=110 :cbChanged='changed'>
             </dropdown>
           </div>
           <div id=size>
@@ -43,12 +43,12 @@
     <div id='thirdLine'>
         <div id=characterAlignment>
           <!-- <p>Character alignment:</p> -->
-          <dropdown :data="alignmentOptions" placeholder='Alignment'>
+          <dropdown :data="alignmentOptions" placeholder='Alignment' :width=155>
           </dropdown>
         </div>
         <div id=characterReligion>
           <!-- <p>Character religion/ patron diety:</p> -->
-          <dropdown :data="religionOptions" placeholder='Religion'>
+          <dropdown :data="religionOptions" placeholder='Religion' :width=200>
           </dropdown>
         </div>
         <div id=height>
@@ -71,15 +71,17 @@
 
 <script>
 const _ = require('underscore');
-const d20class = require('../resources/d20class.js');
-const race = require('../resources/race.js');
+const d20class = require('../resources/d20class.js').default.d20class;
+const race = require('../resources/race.js').default.race;
+const deity = require('../resources/deity.js').default.deity
 const characterMaster = require('../resources/characterMaster').default.characterMaster;
 
 import HelloWorld from './components/HelloWorld'
 import { checkServerIdentity } from 'tls';
 
-var d20classArray = objToArr(d20class.default.d20class)
-var raceArray = objToArr(race.default.race)
+var d20classArray = objToArr(d20class);
+var raceArray = objToArr(race);
+var deityArray = objToArr(deity);
 function objToArr(data) {
   var arr = [];
   _.each(data, (d20class, i) => {
@@ -124,23 +126,32 @@ export default {
                   label: 'True Neutral',
                   value: 4
                 }],
-      religionOptions: [{
-                  label: 'The jews',
-                  value: 1
-                }, {
-                  label: 'Muslims',
-                  value: 2
-                }, {
-                  label: 'Roman Catholic',
-                  value: 3
-                }, {
-                  label: 'jews',
-                  value: 4
-                }, {
-                  label: '(((them)))',
-                  value: 5
-                }]
+      religionOptions: deityArray
     }
+  },
+  methods: {
+    changed(selected) {
+      var selectedRace = selected[0].label;
+
+      if(race[name].size === 0) {
+        this.size = 'fine';
+      } else if (race[name].size === 1) {
+        this.size = 'tiny';
+      } else if (race[name].size === 3) {
+        this.size = 'small';
+      } else if (race[name].size === 4) {
+        this.size = 'medium';
+      } else if (race[name].size === 5) {
+        this.size = 'large';
+      } else if (race[name].size === 6) {
+        this.size = 'huge';
+      } else if (race[name].size === 7) {
+        this.size = 'gargantuan';
+      } else {
+        this.size = 'colossal'
+      }
+      } 
+
   }
 }
 </script>
