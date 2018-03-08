@@ -2,10 +2,10 @@
 //class skills list: "appraise", "balance", "bluff", "climb", "concentration", "craft()", "decipherScript", "diplomacy", "disable device", "disguise", "escapeArtist", "forgery", "gatherInformation", "handleAnimal", "heal", "hide", "intimidate", "jump", "knowledge()", "listen", "moveSilently", "openLock", "perform()", "profession()", "ride", "search", "senseMotive", "sleightOfHand", "spellcraft", "spot", "survival", "swim", "tumble", "useMagicDevice", "useRope"
 var d20class = 
 {
-	Barbarian: 
+	'barbarian': 
 		{
 		//name: identifiable class name
-		name: "Barbarian",
+		name: "barbarian",
 		// BAB: 0 = full, 1 = 3/4, 2 = half
 		BAB: 0,
 		// All saves: 0 = full, 1 = half
@@ -28,9 +28,9 @@ var d20class =
 		// spellType: what kind of spells do they produce; common types are arcane and divine; many classes will have none and few will have both 
 		spellType: "none"
 		},
-	Bard: 
+	'bard': 
 		{
-		name: "Bard",
+		name: "bard",
 		BAB: 1,
 		fortSave: 1,
 		refSave: 0,
@@ -44,9 +44,9 @@ var d20class =
 		spellStat: "CHA",
 		spellType: "arcane"
 		},
-	Cleric: 
+	'cleric': 
 		{
-		name: "Cleric",
+		name: "cleric",
 		BAB: 1,
 		fortSave: 0,
 		refSave: 1,
@@ -61,9 +61,9 @@ var d20class =
 		spellStat: "WIS",
 		spellType: "divine"
 		},
-	Druid: 
+	'druid': 
 		{
-		name: "Druid",
+		name: "druid",
 		BAB: 1,
 		fortSave: 0,
 		refSave: 1,
@@ -77,9 +77,9 @@ var d20class =
 		spellStat: "WIS",
 		spellType: "divine"
 		},
-	Fighter: 
+	'fighter': 
 		{
-		name: "Fighter",
+		name: "fighter",
 		BAB: 0,
 		fortSave: 0,
 		refSave: 1,
@@ -93,9 +93,9 @@ var d20class =
 		spellStat: "none",
 		spellType: "none"
 		},
-	Monk: 
+	'monk': 
 		{
-		name: "Monk",
+		name: "monk",
 		BAB: 1,
 		fortSave: 0,
 		refSave: 0,
@@ -109,9 +109,9 @@ var d20class =
 		spellStat: "none",
 		spellType: "none"
 		},
-	Paladin: 
+	'paladin': 
 		{
-		name: "Paladin",
+		name: "paladin",
 		BAB: 0,
 		fortSave: 0,
 		refSave: 1,
@@ -125,9 +125,9 @@ var d20class =
 		spellStat: "WIS",
 		spellType: "divine"
 		},
-	Ranger: 
+	'ranger': 
 		{
-		name: "Ranger",
+		name: "ranger",
 		BAB: 0,
 		fortSave: 0,
 		refSave: 0,
@@ -141,9 +141,9 @@ var d20class =
 		spellStat: "WIS",
 		spellType: "divine"
 		},
-	Rogue: 
+	'rogue': 
 		{
-		name: "Rogue",
+		name: "rogue",
 		BAB: 1,
 		fortSave: 1,
 		refSave: 0,
@@ -157,9 +157,9 @@ var d20class =
 		spellStat: "none",
 		spellType: "none"
 		},
-	Sorceror: 
+	'sorceror': 
 		{
-		name: "Sorceror",
+		name: "sorceror",
 		BAB: 2,
 		fortSave: 1,
 		refSave: 1,
@@ -173,9 +173,9 @@ var d20class =
 		spellStat: "CHA",
 		spellType: "arcane"
 		},
-	Wizard: 
+	'wizard': 
 		{
-		name: "Wizard",
+		name: "wizard",
 		BAB: 2,
 		fortSave: 1,
 		refSave: 1,

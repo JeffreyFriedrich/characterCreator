@@ -1,9 +1,9 @@
 var race = 
 {
-	human: 
+	'human': 
 		{
 		//name: as found in the literature
-		name:"Human",
+		name:"human",
 		//abilityChanges: changes made 
 		abilityChanges: {},
 		// size: 0 = fine, 1 = diminuitive, 2 = tiny, 3 = small, 4 = medium, 5 = large, 6 = huge, 7 = gargantuan, 8 = colossal; attack and AC formula = 2 ^ (3 - size) (for size < 4) or -(2) ^ (size - 5) (for size > 4) or 0 (size = 4); special attacks modifier (bull rush, grapple, etc) = (size - 4) * 4; hide modifier = (4 - size) * 4
@@ -34,9 +34,9 @@ var race =
 		// favoredClass: multiclass character do not take an experience point penalty for their favored class levels (when this rule is used)
 		favoredClass: "any"
 		},
-	dwarf: 
+	'dwarf': 
 		{
-		name:"Dwarf", 
+		name:"dwarf", 
 		abilityChanges: {CON: 2, CHA: -2},
 		size: 4,
 		speed: 20,
@@ -52,9 +52,9 @@ var race =
 		spellLikeAbilities: [],
 		favoredClass: "fighter"
 		},
-	elf:
+	'elf': 
 		{
-		name:"Elf", 
+		name:"elf", 
 		abilityChanges: {DEX: 2, CON: -2},
 		size: 4,
 		speed: 30,
@@ -70,9 +70,9 @@ var race =
 		spellLikeAbilities: [],
 		favoredClass: "wizard"
 		},
-	gnome:
+	'gnome': 
 		{
-		name:"Gnome", 
+		name:"gnome", 
 		abilityChanges: {STR: -2, CON: 2},
 		size: 3,
 		speed: 20,
@@ -88,9 +88,9 @@ var race =
 		spellLikeAbilities: ["1/day—speak with animals (burrowing mammal only, duration 1 minute). A gnome with a Charisma score of at least 10 also has the following spell-like abilities: 1/day—dancing lights, ghost sound, prestidigitation. Caster level 1st; save DC 10 + gnome’s Cha modifier + spell level."],
 		favoredClass: "bard"
 		},
-	halfElf:
+	'half-elf': 
 		{
-		name:"Half-Elf", 
+		name:"half-elf", 
 		abilityChanges: {},
 		size: 4,
 		speed: 30,
@@ -102,14 +102,14 @@ var race =
 		racialBonus: {listen: 1, search: 1, spot: 1, diplomacy: 2, gatherInformation: 2},
 		blood: ["elven"],
 		automaticLanguages: ["common", "elven"],
-		//NOTE: humans access to any bonus language does not include secret languages like druidic
+		//NOTE: half-elves have access to any bonus language that does not include secret languages like druidic
 		bonusLanguages: ["any"],
 		spellLikeAbilities: [],
 		favoredClass: "any"
 		},	
-	halfOrc:
+	'half-orc': 
 		{
-		name:"Half-Orc", 
+		name:"half-orc", 
 		abilityChanges: {STR: 2, INT: -2, CHA: -2},
 		size: 4,
 		speed: 30,
@@ -125,9 +125,9 @@ var race =
 		spellLikeAbilities: [],
 		favoredClass: "barbarian"
 		},
-	halfling:
+	'halfling': 
 		{
-		name:"Halfling", 
+		name:"halfling", 
 		abilityChanges: {STR: -2, DEX: 2},
 		size: 3,
 		speed: 20,
