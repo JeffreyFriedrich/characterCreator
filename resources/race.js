@@ -53,3 +53,7 @@ var race =
 		favoredClass: "any"
 		}
 }
+
+export default {
+	race
+}

@@ -193,3 +193,7 @@ var d20class =
 		spellType: "arcane"
 		},
 }
+
+export default {
+	d20class
+}

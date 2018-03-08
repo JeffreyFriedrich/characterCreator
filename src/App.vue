@@ -1,56 +1,69 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <img src="./assets/characterSheetTopImage.jpeg">
+    <!--TODO break two sides of this image up, put black background behind them, will be able to expand and contract image the, to fit all screen-->
     <div id="baseStats">
-      <div id=characterName>
-        <p>Character name:</p>
-        <input v-model="name" placeholder="character name">
+      <div id='firstLine'>
+        <div id=characterName>
+          <p>Character name:</p>
+          <input v-model="name" placeholder="character name">
+        </div>
+        <div id=playerName>
+          <p>Player name:</p>
+          <input v-model="playerName" placeholder="player name">
+        </div>
       </div>
-      <div id=characterRace>
-        <p>Character race:</p>
-        <dropdown :data="raceOptions" :cbChanged="changed">
-        </dropdown>
+  <br>
+      <div id='secondLine'>
+          <div id=characterRace>
+            <p>Character race:</p>
+            <dropdown :data="raceOptions">
+            </dropdown>
+          </div>
+          <div id=characterClass>
+            <p>Character class:</p>
+            <dropdown :data="classOptions">
+            </dropdown>
+          </div>
+          <div id=characterLevel>
+            <p>Character level:</p>
+            <input v-model='level' placeholder="character level">
+          </div>
+          <div id=ECL>
+            <p>ECL: {{ECL}}</p>
+          </div>
+          <div id=size>
+            <p>Size: {{ size}}</p>
+          </div>
+          <div id=gender>
+            <p>Gender:</p>
+            <input v-model='gender' placeholder="character gender">
+          </div>
       </div>
-      <div id=characterClass>
-        <p>Character class:</p>
-        <dropdown :data="classOptions" :cbChanged="changed">
-        </dropdown>
-      </div>
-      <div id=characterLevel>
-        <p>Character level:</p>
-        <input v-model='level' placeholder="character level">
-      </div>
-      <div id=ECL>
-        <p>ECL: {{ECL}}</p>
-      </div>
-      <div id=size>
-        <p>Size: {{ size}}</p>
-      </div>
-      <div id=gender>
-        <p>Gender:</p>
-        <input v-model='gender' placeholder="character gender">
-      </div>
-      <div id=characterAlignment>
-        <p>Character alignment:</p>
-        <dropdown :data="alignmentOptions" :cbChanged="changed">
-        </dropdown>
-      </div>
-      <div id=characterReligion>
-        <p>Character religion/ patron diety:</p>
-        <dropdown :data="religionOptions" :cbChanged="changed">
-        </dropdown>
-      </div>
-      <div id=height>
-        <p>Height:</p>
-        <input v-model='height' placeholder="character height">
-      </div>
-      <div id=weight>
-        <p>Weight:</p>
-        <input v-model='weight' placeholder="character weight">
-      </div>
-      <div id=looks>weight
-        <p>Looks:</p>
-        <input v-model='looks' placeholder="character looks">
+  <br>
+    <div id='thirdLine'>
+        <div id=characterAlignment>
+          <p>Character alignment:</p>
+          <dropdown :data="alignmentOptions">
+          </dropdown>
+        </div>
+        <div id=characterReligion>
+          <p>Character religion/ patron diety:</p>
+          <dropdown :data="religionOptions">
+          </dropdown>
+        </div>
+        <div id=height>
+          <p>Height:</p>
+          <input v-model='height' placeholder="character height">
+        </div>
+        <div id=weight>
+          <p>Weight:</p>
+          <input v-model='weight' placeholder="character weight">
+        </div>
+        <div id=looks>
+          <p>Looks:</p>
+          <input v-model='looks' placeholder="character looks">
+        </div>
       </div>
     </div>
   </div>
@@ -58,7 +71,24 @@
 </template>
 
 <script>
+const _ = require('underscore');
+const d20class = require('../resources/d20class.js');
+const race = require('../resources/race.js');
 import HelloWorld from './components/HelloWorld'
+
+var d20classArray = objToArr(d20class.default.d20class)
+var raceArray = objToArr(race.default.race)
+function objToArr(data) {
+  var arr = [];
+  _.each(data, (d20class, i) => {
+    arr.push({
+      label: d20class.name,
+      value: i
+    })
+  })
+  // console.log(arr)
+  return arr
+}
 
 export default {
   name: 'App',
@@ -68,41 +98,18 @@ export default {
   data () {
     return {
       msg: 'A character creator, created for your pleasure',
-      name: 'Butt Stallion',
+      name: '',
+      playerName: '',
       level: '',
-      size: 'large',
+      size: '',
       gender: '',
       ECL: 1,
       height: '',
       weight: '',
       looks: '',
-      characterClass: 'Barbarian',
-      raceOptions: [{
-                  label: 'Human',
-                  value: 1
-                }, {
-                  label: 'Half-Orc',
-                  value: 2
-                }, {
-                  label: 'Elf',
-                  value: 3
-                }, {
-                  label: 'Half-Elf',
-                  value: 4
-                }],
-      classOptions: [{
-                  label: 'Barbarian',
-                  value: 1
-                }, {
-                  label: 'Ranger',
-                  value: 2
-                }, {
-                  label: 'Fighter',
-                  value: 3
-                }, {
-                  label: 'Rogue',
-                  value: 4
-                }],
+      characterClass: '',
+      raceOptions: raceArray,
+      classOptions: d20classArray,
       alignmentOptions: [{
                   label: 'Chaotic Evil',
                   value: 1
@@ -148,7 +155,19 @@ export default {
   margin-top: 60px;
 }
 #baseStats {
-  flex-direction: row;
+  /* display: flex; */
+  /* align-items: columns; */
+  /* margin-left: auto; */
+  text-align:left
+}
+#firstLine {
+  display: flex;
+}
+#secondLine {
+  display: flex;
+}
+#thirdLine {
+  display: flex;
 }
 </style>
 
