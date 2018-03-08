@@ -5,23 +5,17 @@
     <div id="baseStats">
       <div id='firstLine'>
         <div id=characterName>
-          <p>Character name:</p>
+          <!-- <p>Character name:</p> -->
           <input v-model="name" placeholder="character name">
         </div>
         <div id=playerName>
-          <p>Player name:</p>
+          <!-- <p>Player name:</p> -->
           <input v-model="playerName" placeholder="player name">
         </div>
       </div>
   <br>
       <div id='secondLine'>
-          <div id=characterRace>
-            <p>Character race:</p>
-            <dropdown :data="raceOptions">
-            </dropdown>
-          </div>
           <div id=characterClass>
-            <p>Character class:</p>
             <dropdown :data="classOptions">
             </dropdown>
           </div>
@@ -32,6 +26,13 @@
           <div id=ECL>
             <p>ECL: {{ECL}}</p>
           </div>
+          <div id=characterRace>
+            <p>Character race:</p>
+            <dropdown :data="raceOptions">
+            </dropdown>
+          </div>
+
+
           <div id=size>
             <p>Size: {{ size}}</p>
           </div>
@@ -139,7 +140,6 @@ export default {
                   label: '(((them)))',
                   value: 5
                 }]
-  
     }
   }
 }
@@ -153,21 +153,72 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  -webkit-box-flex:1;
+  -webkit-flex:1;
+  -ms-flex:1;
+  flex:1;
 }
 #baseStats {
   /* display: flex; */
   /* align-items: columns; */
   /* margin-left: auto; */
-  text-align:left
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 25px;
 }
 #firstLine {
   display: flex;
+  flex-grow: 1;
+  min-width: 25%;
 }
 #secondLine {
   display: flex;
+  flex-grow: 1;
+  min-width: 15%;
 }
 #thirdLine {
   display: flex;
+}
+#characterName {
+  min-width:40%;
+  border-bottom: 1px solid black;
+  margin-right: 20px;
+  height: 20px;
+  font-size: 25px;
+}
+#playerName {
+  min-width:50%;
+  padding-right: 20px;
+  border-bottom: 1px solid black;
+}
+#firstLine input {
+  float: left;
+  width: 90% ;
+  display:flex;
+  border: none;
+}
+#secondLine input {
+  float: left;
+  width: 90% ;
+  display:flex;
+  border: none;
+}
+#firstLine input {
+  float: left;
+  width: 90% ;
+  display:flex;
+  border: none;
+}
+#characterClass {
+  min-width:40%;
+  border-bottom: 1px solid black;
+  margin-right: 20px;
+}
+#characterLevel {
+    min-width:40%;
+  border-bottom: 1px solid black;
+  margin-right: 20px;
+
 }
 </style>
 
