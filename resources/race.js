@@ -145,6 +145,7 @@ var race =
 		}
 }
 
-export default {
+module.exports.default =
+{
 	race
 }

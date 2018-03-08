@@ -6,6 +6,7 @@ var characterMaster = {
     name: ''
 }
 
-export default {
+module.exports.default =
+{
     characterMaster
 }
