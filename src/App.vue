@@ -16,53 +16,51 @@
   <br>
       <div id='secondLine'>
           <div id=characterClass>
-            <dropdown :data="classOptions">
+            <dropdown :data="classOptions" placeholder='Class'>
             </dropdown>
           </div>
           <div id=characterLevel>
-            <p>Character level:</p>
+            <!-- <p>Character level:</p> -->
             <input v-model='level' placeholder="character level">
           </div>
           <div id=ECL>
             <p>ECL: {{ECL}}</p>
           </div>
           <div id=characterRace>
-            <p>Character race:</p>
-            <dropdown :data="raceOptions">
+            <!-- <p>Character race:</p> -->
+            <dropdown :data="raceOptions" placeholder='Race'>
             </dropdown>
           </div>
-
-
           <div id=size>
-            <p>Size: {{ size}}</p>
+            <p>Size: {{size}}</p>
           </div>
           <div id=gender>
-            <p>Gender:</p>
+            <!-- <p>Gender:</p> -->
             <input v-model='gender' placeholder="character gender">
           </div>
       </div>
   <br>
     <div id='thirdLine'>
         <div id=characterAlignment>
-          <p>Character alignment:</p>
-          <dropdown :data="alignmentOptions">
+          <!-- <p>Character alignment:</p> -->
+          <dropdown :data="alignmentOptions" placeholder='Alignment'>
           </dropdown>
         </div>
         <div id=characterReligion>
-          <p>Character religion/ patron diety:</p>
-          <dropdown :data="religionOptions">
+          <!-- <p>Character religion/ patron diety:</p> -->
+          <dropdown :data="religionOptions" placeholder='Religion'>
           </dropdown>
         </div>
         <div id=height>
-          <p>Height:</p>
-          <input v-model='height' placeholder="character height">
+          <!-- <p>Height:</p> -->
+          <input v-model='height' placeholder=" height">
         </div>
         <div id=weight>
-          <p>Weight:</p>
-          <input v-model='weight' placeholder="character weight">
+          <!-- <p>Weight:</p> -->
+          <input v-model='weight' placeholder="weight">
         </div>
         <div id=looks>
-          <p>Looks:</p>
+          <!-- <p>Looks:</p> -->
           <input v-model='looks' placeholder="character looks">
         </div>
       </div>
@@ -75,7 +73,10 @@
 const _ = require('underscore');
 const d20class = require('../resources/d20class.js');
 const race = require('../resources/race.js');
+const characterMaster = require('../resources/characterMaster').default.characterMaster;
+
 import HelloWorld from './components/HelloWorld'
+import { checkServerIdentity } from 'tls';
 
 var d20classArray = objToArr(d20class.default.d20class)
 var raceArray = objToArr(race.default.race)
@@ -87,7 +88,6 @@ function objToArr(data) {
       value: i
     })
   })
-  // console.log(arr)
   return arr
 }
 
@@ -147,66 +147,52 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Aria10l, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   color: #2c3e50;
-  margin-top: 60px;
+  /* width: 864px; */
+  width: 880px;
+  margin-top: 10px;
   -webkit-box-flex:1;
   -webkit-flex:1;
   -ms-flex:1;
   flex:1;
 }
+
 #baseStats {
-  /* display: flex; */
-  /* align-items: columns; */
-  /* margin-left: auto; */
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 25px;
+  margin-top: 15px;
+  display: grid;
 }
+
 #firstLine {
-  display: flex;
-  flex-grow: 1;
-  min-width: 25%;
+  display:grid;
+  grid-template-columns: 35% 60%;
 }
-#secondLine {
-  display: flex;
-  flex-grow: 1;
-  min-width: 15%;
-}
-#thirdLine {
-  display: flex;
-}
-#characterName {
-  min-width:40%;
+#characterName {  margin-bottom: auto;
   border-bottom: 1px solid black;
   margin-right: 20px;
   height: 20px;
   font-size: 25px;
 }
 #playerName {
-  min-width:50%;
-  padding-right: 20px;
   border-bottom: 1px solid black;
-}
+}  
 #firstLine input {
-  float: left;
-  width: 90% ;
-  display:flex;
+  width: 100%;
+  display:grid;
   border: none;
+}
+
+#secondLine {
+  display: grid;
+  grid-template-columns: 25% 15% 15% 15% 15% 15%;
 }
 #secondLine input {
-  float: left;
-  width: 90% ;
-  display:flex;
-  border: none;
-}
-#firstLine input {
-  float: left;
-  width: 90% ;
-  display:flex;
+  padding: 5px;
+  width: 100% ;
+  display:grid;
   border: none;
 }
 #characterClass {
@@ -215,11 +201,64 @@ export default {
   margin-right: 20px;
 }
 #characterLevel {
-    min-width:40%;
+  min-width:40%;
   border-bottom: 1px solid black;
   margin-right: 20px;
-
 }
+#ECL {
+  border-bottom: 1px solid black;
+  margin-right: 20px;
+  font-size: 12px;
+}
+#characterRace {
+  border-bottom: 1px solid black;
+  margin-right: 20px;
+}
+#size {
+  border-bottom: 1px solid black;
+  margin-right: 20px;
+  font-size: 12px;
+}
+#gender {
+  border-bottom: 1px solid black;
+  margin-right: 20px;
+}
+
+#thirdLine {
+  display: grid;
+  grid-template-columns: 20% 25% 10% 10% 35%;
+}
+
+#thirdLine input {
+  padding: 5px;
+  width: 100% ;
+  display:grid;
+  border: none;
+}
+
+#characterAlignment {
+  border-bottom: 1px solid black;
+  margin-right: 20px;
+}
+
+#characterReligion {
+  border-bottom: 1px solid black;
+  margin-right: 20px;
+}
+
+#height {
+  border-bottom: 1px solid black;
+  margin-right: 20px;
+}
+#weight {
+  border-bottom: 1px solid black;
+  margin-right: 20px;
+}
+#looks {
+  border-bottom: 1px solid black;
+  margin-right: 20px;
+}
+
 </style>
 
 

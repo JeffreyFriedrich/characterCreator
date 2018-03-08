@@ -3,7 +3,7 @@ const race = require('./race.js');
 const deity = require('./deity.js');
 
 var characterMaster = {
-    characterName: ''
+    name: ''
 }
 
 export default {

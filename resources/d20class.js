@@ -23,8 +23,8 @@ var d20class =
 		// All proficiencies: represent a selection of weapons and armor a character can equip; simple and martial weapon proficiency are most common for weapons; light, medium, heavy, and shields are most common for armor
 		weaponProficiencies: ["simple", "martial"],
 		armorProficiencies: ["light", "medium", "shields"],
-		// spellStat: what ability modifier impacts spells for this class; CHA, WIS, and INT are common; many classes will have "none"
-		spellStat: "none",
+		// s#firstLine {
+ 		spellStat: "none",
 		// spellType: what kind of spells do they produce; common types are arcane and divine; many classes will have none and few will have both 
 		spellType: "none"
 		},
