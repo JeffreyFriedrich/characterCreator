@@ -19,6 +19,7 @@ var deity =
 		}
 }
 
-export default {
+module.exports.default = 
+{
 	deity
 }

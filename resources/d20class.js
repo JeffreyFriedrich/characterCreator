@@ -191,6 +191,7 @@ var d20class =
 		}
 }
 
-export default {
+module.exports.default =
+{
 	d20class
 }
