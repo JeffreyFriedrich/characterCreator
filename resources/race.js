@@ -90,7 +90,7 @@ var race =
 		},
 	halfElf:
 		{
-		name:"Elf", 
+		name:"Half-Elf", 
 		abilityChanges: {DEX: 2, CON: -2},
 		size: 4,
 		speed: 30,
@@ -108,7 +108,7 @@ var race =
 		},	
 	halfOrc:
 		{
-		name:"Elf", 
+		name:"Half-Orc", 
 		abilityChanges: {DEX: 2, CON: -2},
 		size: 4,
 		speed: 30,
@@ -126,7 +126,7 @@ var race =
 		},
 	halfling:
 		{
-		name:"Elf", 
+		name:"Halfling", 
 		abilityChanges: {DEX: 2, CON: -2},
 		size: 4,
 		speed: 30,
