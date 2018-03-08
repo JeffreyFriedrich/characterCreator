@@ -21,7 +21,7 @@ var race =
 		//bonusFeatures: extra features, often conditional, that a race has outside current categories;
 		bonusFeatures: ["bonus feat at 1st level", "4 extra skill points at first level, 1 at additional levels"],
 		//racialBonus: racial features that apply unconditionally to certain categories; often skills
-		racialBonus: [],
+		racialBonus: {},
 		//blood: is cosidered this/these race(s) for certain effects; often written as "___ blood"; if blank, refer to race name
 		blood: [],
 		// automaticLanguages: languages always known by that race
@@ -44,13 +44,103 @@ var race =
 		visionRange: 60,
 		weaponFamiliarity: ["dwarven waraxe", "dwarven urgrosh"],
 		weaponProficiency: [],
-		bonusFeatures: [],
-		racialBonus: [],
+		bonusFeatures: ["Dwarves can move at their base speed even when wearing medium or heavy armor or when carrying a medium or heavy load (unlike other creatures, whose speed is reduced in such situations).", "Stonecunning: This ability grants a dwarf a +2 racial bonus on Search checks to notice unusual stonework, such as sliding walls, stonework traps, new construction (even when built to match the old), unsafe stone surfaces, shaky stone ceilings, and the like. Something that isn’t stone but that is disguised as stone also counts as unusual stonework. A dwarf who merely comes within 10 feet of unusual stonework can make a Search check as if he were actively searching, and a dwarf can use the Search skill to find stonework traps as a rogue can. A dwarf can also intuit depth, sensing his approximate depth underground as naturally as a human can sense which way is up.", "Stability: A dwarf gains a +4 bonus on ability checks made to resist being bull rushed or tripped when standing on the ground (but not when climbing, flying, riding, or otherwise not standing firmly on the ground).", "+2 racial bonus on saving throws against poison.", "+2 racial bonus on saving throws against spells and spell-like effects.", "+1 racial bonus on attack rolls against orcs and goblinoids.", "+4 dodge bonus to Armor Class against monsters of the giant type. Any time a creature loses its Dexterity bonus (if any) to Armor Class, such as when it’s caught flat-footed, it loses its dodge bonus, too.", "+2 racial bonus on Appraise checks that are related to stone or metal items.", "+2 racial bonus on Craft checks that are related to stone or metal."],
+		racialBonus: {},
 		blood: [],
-		automaticLanguages: ["common"],
-		bonusLanguages: ["any"],
+		automaticLanguages: ["common", "dwarven"],
+		bonusLanguages: ["giant", "gnome", "goblin", "orc", "terran", "undercommon"],
 		spellLikeAbilities: [],
-		favoredClass: "any"
+		favoredClass: "fighter"
+		},
+	elf:
+		{
+		name:"Elf", 
+		abilityChanges: {DEX: 2, CON: -2},
+		size: 4,
+		speed: 30,
+		vision: 1,
+		visionRange: 0,
+		weaponFamiliarity: [],
+		weaponProficiency: ["longsword", "rapier", "longbow", "composite longbow","shortbow", "composite shortbow"],
+		bonusFeatures: ["Immunity to magic sleep effects, and a +2 racial saving throw bonus against enchantment spells or effects", "An elf who merely passes within 5 feet of a secret or concealed door is entitled to a Search check to notice it as if she were actively looking for it"],
+		racialBonus: {listen: 2, search: 2, spot: 2},
+		blood: [],
+		automaticLanguages: ["common", "elven"],
+		bonusLanguages: ["draconic", "gnoll", "gnome", "goblin", "orc", "sylvan"],
+		spellLikeAbilities: [],
+		favoredClass: "wizard"
+		},
+	gnome:
+		{
+		name:"Gnome", 
+		abilityChanges: {STR: -2, CON: 2},
+		size: 3,
+		speed: 20,
+		vision: 1,
+		visionRange: 0,
+		weaponFamiliarity: ["gnome hooked hammer"],
+		weaponProficiency: [],
+		bonusFeatures: [],
+		racialBonus: {},
+		blood: [],
+		automaticLanguages: ["common", "gnome"],
+		bonusLanguages: ["draconic", "dwarven", "elven", "giant", "gnoll", "gnome", "goblin", "orc", "sylvan"],
+		spellLikeAbilities: [],
+		favoredClass: "wizard"
+		},
+	halfElf:
+		{
+		name:"Elf", 
+		abilityChanges: {DEX: 2, CON: -2},
+		size: 4,
+		speed: 30,
+		vision: 1,
+		visionRange: 0,
+		weaponFamiliarity: [],
+		weaponProficiency: ["longsword", "rapier", "longbow", "composite longbow","shortbow", "composite shortbow"],
+		bonusFeatures: ["Immunity to magic sleep effects, and a +2 racial saving throw bonus against enchantment spells or effects", "An elf who merely passes within 5 feet of a secret or concealed door is entitled to a Search check to notice it as if she were actively looking for it"],
+		racialBonus: {listen: 2, search: 2, spot: 2},
+		blood: [],
+		automaticLanguages: ["common", "elven"],
+		bonusLanguages: ["draconic", "gnoll", "gnome", "goblin", "orc", "sylvan"],
+		spellLikeAbilities: [],
+		favoredClass: "wizard"
+		},	
+	halfOrc:
+		{
+		name:"Elf", 
+		abilityChanges: {DEX: 2, CON: -2},
+		size: 4,
+		speed: 30,
+		vision: 1,
+		visionRange: 0,
+		weaponFamiliarity: [],
+		weaponProficiency: ["longsword", "rapier", "longbow", "composite longbow","shortbow", "composite shortbow"],
+		bonusFeatures: ["Immunity to magic sleep effects, and a +2 racial saving throw bonus against enchantment spells or effects", "An elf who merely passes within 5 feet of a secret or concealed door is entitled to a Search check to notice it as if she were actively looking for it"],
+		racialBonus: {listen: 2, search: 2, spot: 2},
+		blood: [],
+		automaticLanguages: ["common", "elven"],
+		bonusLanguages: ["draconic", "gnoll", "gnome", "goblin", "orc", "sylvan"],
+		spellLikeAbilities: [],
+		favoredClass: "wizard"
+		},
+	halfling:
+		{
+		name:"Elf", 
+		abilityChanges: {DEX: 2, CON: -2},
+		size: 4,
+		speed: 30,
+		vision: 1,
+		visionRange: 0,
+		weaponFamiliarity: [],
+		weaponProficiency: ["longsword", "rapier", "longbow", "composite longbow","shortbow", "composite shortbow"],
+		bonusFeatures: ["Immunity to magic sleep effects, and a +2 racial saving throw bonus against enchantment spells or effects", "An elf who merely passes within 5 feet of a secret or concealed door is entitled to a Search check to notice it as if she were actively looking for it"],
+		racialBonus: {listen: 2, search: 2, spot: 2},
+		blood: [],
+		automaticLanguages: ["common", "elven"],
+		bonusLanguages: ["draconic", "gnoll", "gnome", "goblin", "orc", "sylvan"],
+		spellLikeAbilities: [],
+		favoredClass: "wizard"
 		}
 }
 
