@@ -16,7 +16,7 @@
   <br>
       <div id='secondLine'>
           <div id=characterClass>
-            <dropdown :data="classOptions" placeholder='Class' :width=200>
+            <dropdown :data="classOptions" placeholder='Class' :width=200 :cbChanged='changedClass'>
             </dropdown>
           </div>
           <div id=characterLevel>
@@ -28,7 +28,7 @@
           </div>
           <div id=characterRace>
             <!-- <p>Character race:</p> -->
-            <dropdown :data="raceOptions" placeholder='Race' :width=110 :cbChanged='changed'>
+            <dropdown :data="raceOptions" placeholder='Race' :width=110 :cbChanged='changedRace'>
             </dropdown>
           </div>
           <div id=size>
@@ -130,28 +130,37 @@ export default {
     }
   },
   methods: {
-    changed(selected) {
+    changedRace(selected) {
       var selectedRace = selected[0].label;
 
-      if(race[name].size === 0) {
+      if(race[selectedRace].size === 0) {
         this.size = 'fine';
-      } else if (race[name].size === 1) {
+      } else if (race[selectedRace].size === 1) {
         this.size = 'tiny';
-      } else if (race[name].size === 3) {
+      } else if (race[selectedRace].size === 3) {
         this.size = 'small';
-      } else if (race[name].size === 4) {
+      } else if (race[selectedRace].size === 4) {
         this.size = 'medium';
-      } else if (race[name].size === 5) {
+      } else if (race[selectedRace].size === 5) {
         this.size = 'large';
-      } else if (race[name].size === 6) {
+      } else if (race[selectedRace].size === 6) {
         this.size = 'huge';
-      } else if (race[name].size === 7) {
+      } else if (race[selectedRace].size === 7) {
         this.size = 'gargantuan';
       } else {
-        this.size = 'colossal'
+        this.size = 'colossal';
       }
-      } 
-
+    },
+    changedClass(selected) {
+      var selectedClass = selected[0].label;
+      console.log(d20class[selectedClass].alignment)
+      this.alignmentOptions = d20class[selectedClass].alignment.map((el,i) => {
+        return {
+          label: el,
+          value: i
+        }
+      });
+    }
   }
 }
 </script>
