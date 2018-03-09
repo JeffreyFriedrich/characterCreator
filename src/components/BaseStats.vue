@@ -69,7 +69,7 @@ const _ = require('underscore');
 const d20class = require('../../resources/d20class.js').default.d20class;
 const race = require('../../resources/race.js').default.race;
 const deity = require('../../resources/deity.js').default.deity
-const characterMaster = require('../../resources/characterMaster').default.characterMaster;
+var characterMaster = require('../../resources/characterMaster').default.characterMaster;
 
 import { checkServerIdentity } from 'tls';
 
@@ -102,6 +102,7 @@ export default {
       weight: '',
       looks: '',
       characterClass: '',
+
       raceOptions: raceArray,
       classOptions: d20classArray,
       alignmentOptions: [{
@@ -141,6 +142,7 @@ export default {
       } else {
         this.size = 'colossal';
       }
+      characterMaster.race = selectedRace;
     },
     changedClass(selected) {
       var selectedClass = selected[0].label;
@@ -150,6 +152,7 @@ export default {
           value: i
         }
       });
+      characterMaster.class = selectedClass;
     }
   }
 }
