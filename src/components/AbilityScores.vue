@@ -7,7 +7,7 @@
           <h3>STR</h3>
           <p>total</p>
           <p>=</p>
-          <p>{{baseAbilityScores[0]}} + {{}}</p>+
+          <p>{{baseAbilityScores[0]}} + </p>+
           <p>enhancement bonuses</p>+
           <p>misc bonuses</p>-
           <p>misc penalties</p>
@@ -69,8 +69,10 @@ import Ability from './Ability';
 const helper = require('../../resources/helperFunctions.js').default;
 const race = require('../../resources/race.js');
 var baseAbilityScores = helper.abilityScorer();
-var characterMaster = require('../../resources/characterMaster.js')
-
+var characterMaster = require('../../resources/characterMaster.js').default.characterMaster
+console.log(characterMaster['base stats'])
+// var raceModifier = race[];
+// console.log(raceModifier)
 export default {
   name: 'AbilityScores',
   components: {
