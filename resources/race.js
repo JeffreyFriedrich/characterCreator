@@ -5,7 +5,7 @@ var race =
 		//name: as found in the literature
 		name:"human",
 		//abilityChanges: changes made 
-		abilityChanges: {},
+		abilityChanges: {strength: 0, dexterity: 0, constitution: 0, intelligence: 0, wisdom: 0, charisma: 0},
 		// size: 0 = fine, 1 = diminuitive, 2 = tiny, 3 = small, 4 = medium, 5 = large, 6 = huge, 7 = gargantuan, 8 = colossal; attack and AC formula = 2 ^ (3 - size) (for size < 4) or -(2) ^ (size - 5) (for size > 4) or 0 (size = 4); special attacks modifier (bull rush, grapple, etc) = (size - 4) * 4; hide modifier = (4 - size) * 4
 		size: 4,
 		// speed: ft moved in a move action
@@ -37,7 +37,7 @@ var race =
 	'dwarf': 
 		{
 		name:"dwarf", 
-		abilityChanges: {CON: 2, CHA: -2},
+		abilityChanges: {strength: 0, dexterity: 0, constitution: 2, intelligence: 0, wisdom: 0, charisma: -2},
 		size: 4,
 		speed: 20,
 		vision: 2,
@@ -55,7 +55,7 @@ var race =
 	'elf': 
 		{
 		name:"elf", 
-		abilityChanges: {DEX: 2, CON: -2},
+		abilityChanges: {strength: 0, dexterity: 2, constitution: -2, intelligence: 0, wisdom: 0, charisma: 0},
 		size: 4,
 		speed: 30,
 		vision: 1,
@@ -73,7 +73,7 @@ var race =
 	'gnome': 
 		{
 		name:"gnome", 
-		abilityChanges: {STR: -2, CON: 2},
+		abilityChanges: {strength: -2, dexterity: 0, constitution: 2, intelligence: 0, wisdom: 0, charisma: 0},
 		size: 3,
 		speed: 20,
 		vision: 1,
@@ -91,7 +91,7 @@ var race =
 	'half-elf': 
 		{
 		name:"half-elf", 
-		abilityChanges: {},
+		abilityChanges: {strength: 0, dexterity: 0, constitution: 0, intelligence: 0, wisdom: 0, charisma: 0},
 		size: 4,
 		speed: 30,
 		vision: 1,
@@ -110,7 +110,7 @@ var race =
 	'half-orc': 
 		{
 		name:"half-orc", 
-		abilityChanges: {STR: 2, INT: -2, CHA: -2},
+		abilityChanges: {strength: 2, dexterity: 0, constitution: 0, intelligence: -2, wisdom: 0, charisma: -2},
 		size: 4,
 		speed: 30,
 		vision: 2,
@@ -128,7 +128,7 @@ var race =
 	'halfling': 
 		{
 		name:"halfling", 
-		abilityChanges: {STR: -2, DEX: 2},
+		abilityChanges: {strength: -2, dexterity: 2, constitution: 0, intelligence: 0, wisdom: 0, charisma: 0},
 		size: 3,
 		speed: 20,
 		vision: 0,
