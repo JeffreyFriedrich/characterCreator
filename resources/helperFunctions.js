@@ -107,5 +107,3 @@ module.exports.default =
 	dieRoll,
 	abilityModifier
 }
-
-console.log(abilityScorer());
