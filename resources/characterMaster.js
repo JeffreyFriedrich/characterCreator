@@ -4,9 +4,9 @@ const deity = require('./deity.js');
 
 var characterMaster = 
 {	
-	'base stats': 
+	'baseStats': 
 	{
-		name: 'base stats',
+		name: 'baseStats',
     	characterName: '',
     	playerName: '',
     	d20class: {},
@@ -20,9 +20,9 @@ var characterMaster =
     	weight: '',
     	looks: ''
 	},
-	'ability scores':
+	'abilityScores':
 	{
-		name: 'ability scores',
+		name: 'abilityScores',
 		baseStrength: 0,
 		baseDexterity: 0,
 		baseConstitution: 0,
