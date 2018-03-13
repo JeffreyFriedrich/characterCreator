@@ -17,9 +17,9 @@ var deity =
 		//description: a giant string of text explaining who this god is and what their goals are; pure flair
 		description: "Boccob is a distant deity who promotes no special agenda in the world of mortals. As a god of magic and knowledge, he is worshipped by wizards, sorcerers, and sages."
 		},
-	'corellon larethian':
+	'corellon_larethian':
 		{
-		name: "corellon larethian",
+		name: "corellon_larethian",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
@@ -57,9 +57,9 @@ var deity =
 		portfolios: [""],
 		description: ""
 		},
-	'garl glittergold':
+	'garl_glittergold':
 		{
-		name: "garl glittergold",
+		name: "garl_glittergold",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
@@ -157,9 +157,9 @@ var deity =
 		portfolios: [""],
 		description: ""
 		},
-	'st. cuthbert':
+	'st._cuthbert':
 		{
-		name: "st. cuthbert",
+		name: "st._cuthbert",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
@@ -177,9 +177,9 @@ var deity =
 		portfolios: [""],
 		description: ""
 		},
-	'wee jas':
+	'wee_jas':
 		{
-		name: "wee jas",
+		name: "wee_jas",
 		alignment: "",
 		domains: [""],
 		favoredWeapon: "",
