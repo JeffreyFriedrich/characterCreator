@@ -159,5 +159,6 @@ module.exports.default =
 	abilityModifier,
 	calculateAbility,
 	diceBreaker,
-	diceBuilder
+	diceBuilder,
+	abilityModifier
 }

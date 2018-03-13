@@ -5,9 +5,9 @@
       <div class='abilityLabel'>
         <div id='str' class='abilityLine'>
           <h3>STR</h3>
-          <p>total</p>
+          <p>total: {{baseAbilityScores[0] + abilityModifiers.strength}}</p>
           <p>=</p>
-          <p>{{baseAbilityScores[0]}} + {{}}</p>+
+          <p>{{baseAbilityScores[0]}} + {{abilityModifiers.strength}}</p>+
           <p>enhancement bonuses</p>+
           <p>misc bonuses</p>-
           <p>misc penalties</p>
@@ -15,8 +15,8 @@
         </div>
         <div id='dex' class='abilityLine'>
           <h3>DEX</h3>
-          <p>total</p>=
-          <p>{{baseAbilityScores[1]}} + racial mod</p>+
+          <p>total: {{baseAbilityScores[0] + abilityModifiers.dexterity}}</p>=
+          <p>{{baseAbilityScores[1]}} + {{abilityModifiers.dexterity }}</p>+
           <p>enhancement bonuses</p>+
           <p>misc bonuses</p>-
           <p>misc penalties</p>
@@ -24,8 +24,8 @@
         </div>
         <div id='con' class='abilityLine'>
           <h3>CON</h3>
-          <p>total</p>=
-          <p>{{baseAbilityScores[2]}} + racial mod</p>+
+          <p>total: {{baseAbilityScores[0] + abilityModifiers.constitution}}</p>=
+          <p>{{baseAbilityScores[2]}} + {{abilityModifiers.constitution}}</p>+
           <p>enhancement bonuses</p>+
           <p>misc bonuses</p>-
           <p>misc penalties</p>
@@ -33,8 +33,8 @@
         </div>
         <div id='int' class='abilityLine'>
           <h3>INT</h3>
-          <p>total</p>=
-          <p>{{baseAbilityScores[3]}} + racial mod</p>+
+          <p>total: {{baseAbilityScores[0] + abilityModifiers.intelligence}}</p>=
+          <p>{{baseAbilityScores[3]}} + {{abilityModifiers.intelligence}}</p>+
           <p>enhancement bonuses</p>+
           <p>misc bonuses</p>-
           <p>misc penalties</p>
@@ -42,8 +42,8 @@
         </div>
         <div id='wis' class='abilityLine'>
           <h3>WIS</h3>
-          <p>total</p>=
-          <p>{{baseAbilityScores[4]}} + racial mod</p>+
+          <p>total: {{baseAbilityScores[0] + abilityModifiers.wisdom}}</p>=
+          <p>{{baseAbilityScores[4]}} + {{abilityModifiers.wisdom}}</p>+
           <p>enhancement bonuses</p>+
           <p>misc bonuses</p>-
           <p>misc penalties</p>
@@ -51,8 +51,8 @@
         </div>
         <div id='cha' class='abilityLine'>
           <h3>CHA</h3>
-          <p>total</p>=
-          <p>{{baseAbilityScores[5]}} + racial mod</p>+
+          <p>total: {{baseAbilityScores[0] + abilityModifiers.charisma}}</p>=
+          <p>{{baseAbilityScores[5]}} + {{abilityModifiers.charisma}}</p>+
           <p>enhancement bonuses</p>+
           <p>misc bonuses</p>-
           <p>misc penalties</p>
@@ -66,19 +66,51 @@
 <script>
 import { checkServerIdentity } from 'tls';
 import Ability from './Ability';
+import store from '../store';
 const helper = require('../../resources/helperFunctions.js').default;
-const race = require('../../resources/race.js');
+const race = require('../../resources/race.js').default.race;
 var baseAbilityScores = helper.abilityScorer();
-var characterMaster = require('../../resources/characterMaster.js')
+var characterMaster = require('../../resources/characterMaster.js').default.characterMaster;
 
 export default {
   name: 'AbilityScores',
   components: {
     Ability
   },
-  data () {
+  data() {
     return {
-      baseAbilityScores
+      baseAbilityScores,
+      fuckValue: '',
+      abilityChanges: {strength: 0, dexterity: 0, constitution: 0, intelligence: 0, wisdom: 0, charisma: 0}
+    }
+  },
+  computed: {
+    abilityModifiers () {
+      var currentRace = this.$store.getters.getRace;
+      if(currentRace !== '') {
+       return race[currentRace].abilityChanges
+      } else {
+        return[]
+      }
+    }
+  },
+  methods: {
+    getAbilityChanges(ability) {
+      if(characterMaster.baseStats.race !== '') {
+        return race[characterMaster.baseStats.race].abilityChanges[ability]
+      }
+      return 0
+    },
+    logMessage() {
+      return this.$store.getters.logMessage
+    },
+    changedFuck(looks) {
+      console.log(this.fuckValue)
+      this.$store.commit('changeMessage', this.fuckValue)
+      console.log( this.$store.getters.getRace)
+    },
+    getStoreRace() {
+      this.abilityChanges = race[this.$store.getters.getRace]
     }
   }
 }

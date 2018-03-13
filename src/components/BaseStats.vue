@@ -142,7 +142,8 @@ export default {
       } else {
         this.size = 'colossal';
       }
-      characterMaster.race = selectedRace;
+      //TODO
+      this.$store.commit('changeRace', selectedRace);
     },
     changedClass(selected) {
       var selectedClass = selected[0].label;
@@ -152,6 +153,7 @@ export default {
           value: i
         }
       });
+      //TODO
       characterMaster.class = selectedClass;
     }
   }
@@ -160,6 +162,7 @@ export default {
 </script>
 
 <style>
+/* //WES BOS CSS TUTORIALS*/
 #app {
   font-family: 'Avenir', Helvetica, Aria10l, sans-serif;
   -webkit-font-smoothing: antialiased;
