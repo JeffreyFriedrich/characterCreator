@@ -5,58 +5,58 @@
       <div class='abilityLabel'>
         <div id='str' class='abilityLine'>
           <h3>STR</h3>
-          <p>total: {{baseAbilityScores[0] + abilityModifiers.strength}}</p>
+          <p>total: {{totals[0]}}</p>
           <p>=</p>
-          <p>{{baseAbilityScores[0]}} + {{abilityModifiers.strength}}</p>+
+          <p>{{baseAbilityScores[0]}} + {{abilityScoreModifiers.strength}}</p>+
           <p>enhancement bonuses</p>+
           <p>misc bonuses</p>-
           <p>misc penalties</p>
-          <p class='modifier'>strength modifier</p>
+          <p class='modifier'>strength modifier: {{abilityModifiers[0]}}</p>
         </div>
         <div id='dex' class='abilityLine'>
           <h3>DEX</h3>
-          <p>total: {{baseAbilityScores[0] + abilityModifiers.dexterity}}</p>=
-          <p>{{baseAbilityScores[1]}} + {{abilityModifiers.dexterity }}</p>+
+          <p>total: {{totals[1]}}</p>=
+          <p>{{baseAbilityScores[1]}} + {{abilityScoreModifiers.dexterity }}</p>+
           <p>enhancement bonuses</p>+
           <p>misc bonuses</p>-
           <p>misc penalties</p>
-          <p class='modifier'>dexterity modifier</p>
+          <p class='modifier'>dexterity modifier: {{abilityModifiers[1]}}</p>
         </div>
         <div id='con' class='abilityLine'>
           <h3>CON</h3>
-          <p>total: {{baseAbilityScores[0] + abilityModifiers.constitution}}</p>=
-          <p>{{baseAbilityScores[2]}} + {{abilityModifiers.constitution}}</p>+
+          <p>total: {{totals[2]}}</p>=
+          <p>{{baseAbilityScores[2]}} + {{abilityScoreModifiers.constitution}}</p>+
           <p>enhancement bonuses</p>+
           <p>misc bonuses</p>-
           <p>misc penalties</p>
-          <p class='modifier'>constitution modifier</p>
+          <p class='modifier'>constitution modifier: {{abilityModifiers[2]}}</p>
         </div>
         <div id='int' class='abilityLine'>
           <h3>INT</h3>
-          <p>total: {{baseAbilityScores[0] + abilityModifiers.intelligence}}</p>=
-          <p>{{baseAbilityScores[3]}} + {{abilityModifiers.intelligence}}</p>+
+          <p>total: {{totals[3]}}</p>=
+          <p>{{baseAbilityScores[3]}} + {{abilityScoreModifiers.intelligence}}</p>+
           <p>enhancement bonuses</p>+
           <p>misc bonuses</p>-
           <p>misc penalties</p>
-          <p class='modifier'>intelligence modifier</p>
+          <p class='modifier'>intelligence modifier: {{abilityModifiers[3]}}</p>
         </div>
         <div id='wis' class='abilityLine'>
           <h3>WIS</h3>
-          <p>total: {{baseAbilityScores[0] + abilityModifiers.wisdom}}</p>=
-          <p>{{baseAbilityScores[4]}} + {{abilityModifiers.wisdom}}</p>+
+          <p>total: {{totals[4]}}</p>=
+          <p>{{baseAbilityScores[4]}} + {{abilityScoreModifiers.wisdom}}</p>+
           <p>enhancement bonuses</p>+
           <p>misc bonuses</p>-
           <p>misc penalties</p>
-          <p class='modifier'>wisdom modifier</p>
+          <p class='modifier'>wisdom modifier: {{abilityModifiers[4]}}</p>
         </div>
         <div id='cha' class='abilityLine'>
           <h3>CHA</h3>
-          <p>total: {{baseAbilityScores[0] + abilityModifiers.charisma}}</p>=
-          <p>{{baseAbilityScores[5]}} + {{abilityModifiers.charisma}}</p>+
+          <p>total: {{totals[5]}}</p>=
+          <p>{{baseAbilityScores[5]}} + {{abilityScoreModifiers.charisma}}</p>+
           <p>enhancement bonuses</p>+
           <p>misc bonuses</p>-
           <p>misc penalties</p>
-          <p class='modifier'>charisma modifier</p>
+          <p class='modifier'>charisma modifier: {{abilityModifiers[5]}}</p>
         </div>
       </div>  
     </div>
@@ -71,7 +71,7 @@ const helper = require('../../resources/helperFunctions.js').default;
 const race = require('../../resources/race.js').default.race;
 var baseAbilityScores = helper.abilityScorer();
 var characterMaster = require('../../resources/characterMaster.js').default.characterMaster;
-
+const _ = require('underscore');
 export default {
   name: 'AbilityScores',
   components: {
@@ -85,14 +85,29 @@ export default {
     }
   },
   computed: {
-    abilityModifiers () {
+    abilityScoreModifiers() {
       var currentRace = this.$store.getters.getRace;
       if(currentRace !== '') {
-       return race[currentRace].abilityChanges
+        return race[currentRace].abilityChanges
       } else {
-        return[]
+        return []
       }
+    },
+    totals() {
+      var arr = [];
+      var i = 0;
+      _.each(this.abilityScoreModifiers, modifier => {
+        arr.push(modifier + this.baseAbilityScores[i])
+        i++;
+      })
+      return arr;
+    },
+    abilityModifiers() {
+      return this.totals.map(total => {
+        return helper.calculateAbilityModifier(total)
+      })
     }
+
   },
   methods: {
     getAbilityChanges(ability) {
