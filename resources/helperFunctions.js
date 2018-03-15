@@ -98,28 +98,40 @@ function calculateAbility(baseValue, raceMod) {
 }
 
 // size: 0 = fine, 1 = diminuitive, 2 = tiny, 3 = small, 4 = medium, 5 = large, 6 = huge, 7 = gargantuan, 8 = colossal;
+//weaponSizing is used to change weapon damage dies based on the size of the creature its made for
+//(see http://www.d20srd.org/srd/equipment/weapons.htm for more details)
 function weaponSizing(mediumDamageDie, size) {
-	if (size === 4) 
-	{
+	//check initially if function is redundant
+	if (size === 4) {
 		return mediumDamageDie;
 	}
-	if (size < 4)
-	{
+	//if function is not redundant and weapon is weird like falchion or greatsword, fix it for later calculations
+	if (mediumDamageDie === 24 || mediumDamageDie === 26) {
+		mediumDamageDie = (mediumDamageDie - 20) * 2;
+	}
+	//check if we are sizing down the weapon
+	if (size < 4) {
 		let iter = 4 - size;
-		if (mediumDamageDie === 24 || mediumDamageDie === 26)
-		{
-			mediumDamageDie = (mediumDamageDie - 20) * 2;
-		}
-		while (iter > 0 && mediumDamageDie > 4)
-		{
+		while (iter > 0 && mediumDamageDie > 4) {
 			mediumDamageDie -= 2;
 			iter--;
 		}
 		return mediumDamageDie - iter;
 	}
-	if (size > 4)
-	{
-		
+	//check if we are sizing up the weapon (redundant, used for clarity more than anything, may be deleted later)
+	if (size > 4) {
+		let iter = size - 4;
+		if (mediumDamageDie === 10) {
+			return 10;
+		}
+		while (iter > 0 && mediumDamageDie < 4) {
+			mediumDamageDie += 1;
+			iter--;
+		}
+		while (iter > 0 && mediumDamageDie < 8) {
+			mediumDamageDie += 2;
+			iter--;
+		}
 	}
 }
 
@@ -159,6 +171,5 @@ module.exports.default =
 	abilityModifier,
 	calculateAbility,
 	diceBreaker,
-	diceBuilder,
-	abilityModifier
+	diceBuilder
 }
