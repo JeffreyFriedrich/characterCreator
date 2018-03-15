@@ -12,10 +12,10 @@
 //	return obj;
 //}
 
-//diceRoller takes a single int typeOfDie and rolls an int numberOfDice equal to that type, then outputs the dice values 
-//	into an array.
-//	summerBoolean is an optional parameter that, given any nonzero value, makes the function return an integer value 
-//	equal to the sum of the array values in lieu of the array itself
+//diceRoller takes a single int typeOfDie and rolls an int numberOfDice equal to that type, 
+//	then outputs the dice values into an array.
+//summerBoolean is an optional parameter that, given any nonzero value, makes the function 
+//	return an integer value equal to the sum of the array values in lieu of the array itself
 function diceRoller(typeOfDie, numberOfDice, summerBoolean) {
 	var arr = [];
 	if (numberOfDice === undefined) {
@@ -33,14 +33,18 @@ function diceRoller(typeOfDie, numberOfDice, summerBoolean) {
 		}, 0)
 	}
 }
-//abilityScorer takes advantage of other helper functions to generate an array of 6 values with these rules:
+//abilityScorer takes advantage of other helper functions to generate an array of 
+//	6 values with these rules:
 //	1. There will always be at least one 18.
-//	2. The other 5 values in the array will result from rolling a minimum of 4 6-sided dice per array value.
+//	2. The other 5 values in the array will result from rolling a minimum of 
+//		4 6-sided dice per array value.
 //	3. If any of those 4 dice are a 1, that die gets rerolled until its value is not a 1.
 //	4. The smallest of those 4 resulting dice is removed.
-//	5. Once we have the three higher non-one dice, they are added together and placed as a value in the array.
+//	5. Once we have the three higher non-one dice, they are added together and placed as a 
+//		value in the array.
 //	6. Continue until we have 6 values in the array.
-//The result is 6 values including one guaranteed 18 and 5 numbers between 6-18 with an average value of 12.
+//The result is 6 values including one guaranteed 18 and 5 numbers between 6-18 with an 
+//	average value of 12.
 function abilityScorer() {
 	var arr = [18];
 	while (arr.length < 6) {
@@ -97,15 +101,19 @@ function calculateAbility(baseValue, raceMod) {
 	return (baseValue + raceMod);
 }
 
-// size: 0 = fine, 1 = diminuitive, 2 = tiny, 3 = small, 4 = medium, 5 = large, 6 = huge, 7 = gargantuan, 8 = colossal;
-//weaponSizing is used to change weapon damage dies based on the size of the creature its made for
-//(see http://www.d20srd.org/srd/equipment/weapons.htm for more details)
+// size: 0 = fine, 1 = diminuitive, 2 = tiny, 3 = small, 4 = medium, 
+//	5 = large, 6 = huge, 7 = gargantuan, 8 = colossal;
+//weaponSizing is used to change weapon damage dies based on 
+//	the size of the creature its made for
+//(see (http://www.d20srd.org/srd/equipment/weapons.htm) 
+//	Table: Larger and Smaller Weapon Damage for more details)
 function weaponSizing(mediumDamageDie, size) {
 	//check initially if function is redundant
 	if (size === 4) {
 		return mediumDamageDie;
 	}
-	//if function is not redundant and weapon is weird like falchion or greatsword, fix it for later calculations
+	//if function is not redundant and weapon is weird like falchion or greatsword, 
+	//	fix it for later calculations
 	if (mediumDamageDie === 24 || mediumDamageDie === 26) {
 		mediumDamageDie = (mediumDamageDie - 20) * 2;
 	}
@@ -118,11 +126,24 @@ function weaponSizing(mediumDamageDie, size) {
 		}
 		return mediumDamageDie - iter;
 	}
-	//check if we are sizing up the weapon (redundant, used for clarity more than anything, may be deleted later)
+	//check if we are sizing up the weapon 
+	//	(redundant, used for clarity more than anything, may be deleted later)
 	if (size > 4) {
 		let iter = size - 4;
+		//medium weapons that start at d10 obey different rules than other weapons at higher 
+		//	sizes so they are done seperately
 		if (mediumDamageDie === 10) {
-			return 10;
+			mediumDamageDie = 28;
+			iter--;
+			while (iter > 0 && mediumDamageDie < 48) {
+				mediumDamageDie += 10;
+				iter--;
+			}
+			while (iter > 0 && mediumDamageDie >= 48) {
+				mediumDamageDie += 20;
+				iter--;
+			}
+			return mediumDamageDie;	
 		}
 		while (iter > 0 && mediumDamageDie < 4) {
 			mediumDamageDie += 1;
@@ -132,6 +153,23 @@ function weaponSizing(mediumDamageDie, size) {
 			mediumDamageDie += 2;
 			iter--;
 		}
+		if (iter > 0 && mediumDamageDie === 8) {
+			mediumDamageDie = 26;
+			iter--;
+		}
+		if (iter > 0 && mediumDamageDie === 12) {
+			mediumDamageDie = 36;
+			iter--;
+		}
+		while (iter > 0 && mediumDamageDie < 46) {
+			mediumDamageDie += 10;
+			iter--;
+		}
+		while (iter > 0 && mediumDamageDie >= 46) {
+			mediumDamageDie += 20;
+			iter--;
+		}
+		return mediumDamageDie;
 	}
 }
 
@@ -169,6 +207,7 @@ module.exports.default =
 	filterOnes,
 	dieRoll,
 	calculateAbility,
+	weaponSizing,
 	diceBreaker,
 	diceBuilder,
 	calculateAbilityModifier
