@@ -99,26 +99,21 @@ function calculateAbility(baseValue, raceMod) {
 
 // size: 0 = fine, 1 = diminuitive, 2 = tiny, 3 = small, 4 = medium, 5 = large, 6 = huge, 7 = gargantuan, 8 = colossal;
 function weaponSizing(mediumDamageDie, size) {
-	if (size === 4) 
-	{
+	if (size === 4) {
 		return mediumDamageDie;
 	}
-	if (size < 4)
-	{
+	if (size < 4) {
 		let iter = 4 - size;
-		if (mediumDamageDie === 24 || mediumDamageDie === 26)
-		{
+		if (mediumDamageDie === 24 || mediumDamageDie === 26) {
 			mediumDamageDie = (mediumDamageDie - 20) * 2;
 		}
-		while (iter > 0 && mediumDamageDie > 4)
-		{
+		while (iter > 0 && mediumDamageDie > 4) {
 			mediumDamageDie -= 2;
 			iter--;
 		}
 		return mediumDamageDie - iter;
 	}
-	if (size > 4)
-	{
+	if (size > 4) {
 		
 	}
 }
