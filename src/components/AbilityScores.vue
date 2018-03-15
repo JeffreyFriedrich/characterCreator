@@ -65,7 +65,6 @@
 
 <script>
 import { checkServerIdentity } from 'tls';
-import Ability from './Ability';
 import store from '../store';
 const helper = require('../../resources/helperFunctions.js').default;
 const race = require('../../resources/race.js').default.race;
@@ -74,9 +73,6 @@ var characterMaster = require('../../resources/characterMaster.js').default.char
 const _ = require('underscore');
 export default {
   name: 'AbilityScores',
-  components: {
-    Ability
-  },
   data() {
     return {
       baseAbilityScores,
