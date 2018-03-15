@@ -89,7 +89,7 @@ function dieRoll(die) {
 	return Math.ceil(Math.random() * die);
 }
 
-function abilityModifier(abilityScore) {
+function calculateAbilityModifier(abilityScore) {
 	return Math.floor((abilityScore - 10) / 2);
 }
 
@@ -168,8 +168,8 @@ module.exports.default =
 	replaceOnes,
 	filterOnes,
 	dieRoll,
-	abilityModifier,
 	calculateAbility,
 	diceBreaker,
-	diceBuilder
+	diceBuilder,
+	calculateAbilityModifier
 }
